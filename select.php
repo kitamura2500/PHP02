@@ -1,7 +1,7 @@
 <?php
 //1.  DB接続します
 try {
-  $pdo = new PDO('mysql:dbname=gs_db;charset=utf8;host=localhost','root', 'root');
+  $pdo = new PDO('mysql:dbname=gs_db;charset=utf8;host=localhost','root', '');
 } catch (PDOException $e) {
   exit('DbConnectError:'.$e->getMessage());
 }
@@ -21,7 +21,7 @@ if($status==false) {
   //Selectデータの数だけ自動でループしてくれる
   //FETCH_ASSOC=http://php.net/manual/ja/pdostatement.fetch.php
   while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){ 
-    $view .= "<p>".$result["indate"]."-".$result["name"]."</p>";
+    $view .= "<p>".$result["indate"]."-".$result["book_name"]."</p>";
   }
 
 }
